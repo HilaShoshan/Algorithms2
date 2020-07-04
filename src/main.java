@@ -13,9 +13,20 @@ public class main {
         }
     }
 
-    public static void main(String[] args) {
+    public static void test_bottles(int m, int n) {
+        BottlesProblem b = new BottlesProblem(m, n);
+        boolean[][] bool_mat = b.getBool_mat();
+        for(int i=0; i<bool_mat.length; i++) {
+            for (int j = 0; j < bool_mat[0].length; j++) {
+                System.out.print(bool_mat[i][j] + "\t");
+            }
+            System.out.println();
+        }
+    }
 
-        int[][] mat = {{0, 2, infinity, infinity, 18},
+    public static void main(String[] args) {
+        test_bottles(1, 2);
+        /*int[][] mat = {{0, 2, infinity, infinity, 18},
                 {2, 0, 4, infinity, infinity},
                 {infinity, 4, 0, 1, infinity},
                 {infinity, infinity, 1, 0, 5},
@@ -32,6 +43,6 @@ public class main {
             System.out.println();
         }
 
-        int cc = g.connectComponents_undirected();
+        int cc = g.connectComponents_undirected();*/
     }
 }

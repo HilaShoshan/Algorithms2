@@ -4,12 +4,12 @@ public class BottlesProblem {
 
     static int infinity = Integer.MAX_VALUE;
 
-    private int m, n;  // m = the volume (capacity) of bottle A, n = volume of bottle B
+    private int m, n;  // m = the volume (capacity) of bottle A, n = volume of bottle B, n<=m
     private int dim;
     private boolean[][] bool_mat;
     private int[][] mat;
 
-    BottlesProblem(int n, int m) {
+    BottlesProblem(int m, int n) {
         this.n = n;
         this.m = m;
         this.dim = (m+1)*(n+1);  // matrix dimension
@@ -25,7 +25,10 @@ public class BottlesProblem {
     }
 
     private void fill_bool_mat() {
-        Arrays.fill(bool_mat, false);
+        //Arrays.fill(bool_mat, false);
+        for(int i = 0; i < dim; i++)
+            for(int j = 0; j < dim; j++)
+                bool_mat[i][j] = false;
         for(int i = 0; i <= m; i++) {
             for(int j = 0; j <= n; j++) {
                 int ij = index(i, j);
@@ -42,7 +45,10 @@ public class BottlesProblem {
     }
 
     private void fill_mat() {
-        Arrays.fill(mat, infinity);
+        //Arrays.fill(mat, infinity);
+        for(int i = 0; i <= m; i++)
+            for(int j = 0; j <= n; j++)
+                mat[i][j] = infinity;
         for(int i = 0; i <= m; i++) {
             for(int j = 0; j <= n; j++) {
                 int ij = index(i, j);
